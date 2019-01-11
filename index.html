@@ -17,6 +17,50 @@
         </nav>
     </div>
     <hr>
+    <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4 col-md-4 col-lg-4" style="background-color: Transparent;">
+                <div class="card mx-auto" style="width: 50rem;">
+                    <div class="card-body">
+                    <h4 class="card-title">■スキルセット</h4>
+                    <h4 class="card-title">フロントサイド</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item row d-flex">
+                              <div class="col-4">製品・技術</div>
+                              <div class="col-2">期間</div>
+                              <div class="col-6">スキル</div>
+                            </li>
+                          </ul>
+                      <p class="card-text">・HTML</p>
+                      <p class="card-text">javascript</p>
+                      <a id="Create Data" class="btn btn-outline-primary" (click)="openCreateModal(content,$event);">Create</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4" style="background-color: Transparent;">
+                  <div class="card mx-auto" style="width: 20rem;">
+                      
+                      <div class="card-body">
+                        <h4 class="card-title"><fa-icon [icon]="faEdit" style="font-size: 50px;color:gray;white-space: nowrap"></fa-icon> データの更新</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a id="Update Data"class="btn btn-outline-primary" (click)="open(content,$event);">Update</a>
+                      </div>
+                    </div>
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4" style="background-color: Transparent;">
+                  <div class="card mx-auto" style="width: 20rem;">
+                      
+                      <div class="card-body">
+                        <h4 class="card-title align-middle">
+                          <fa-icon [icon]="faTrashAlt" style="font-size: 50px;color:gray;white-space: nowrap"></fa-icon>  データの削除</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a id="Delete Data" class="btn btn-outline-danger" (click)="open(content,$event);">Delete</a>
+                      </div>
+                    </div>
+              </div>
+            </div>
+        </div>
+
     
 
     <!-- Optional JavaScript -->
