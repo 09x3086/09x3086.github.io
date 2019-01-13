@@ -1,0 +1,70 @@
+var jsondata = 
+{
+    "skill": {
+        "programming": [
+            {
+                "name": "HTML",
+                "term": 4,
+                "detail": "Webアプリケーションの開発が可能"
+            }, {
+                "name": "Javascript",
+                "term": 4,
+                "detail": "Webアプリケーションの開発が可能"
+            }, {
+                "name": "Java",
+                "term": 1,
+                "detail": "Webアプリケーションの開発が可能"
+            }
+        ],
+        "Database": [
+            {
+                "name": "SQLserver",
+                "term": 4,
+                "detail": "データベースの構築、運用が可能"
+            }, {
+                "name": "Oracle",
+                "term": 0.5,
+                "detail": "構築と簡単なテーブルの作成が可能"
+            }, {
+                "name": "DB2",
+                "term": 0.5,
+                "detail": "構築と簡単なテーブルの作成が可能"
+            }, {
+                "name": "MySQL",
+                "term": 0.5,
+                "detail": "構築と簡単なテーブルの作成が可能"
+            },{
+                "name": "MongoDB",
+                "term": 0.5,
+                "detail": "構築と簡単なテーブルの作成が可能"
+            }
+        ],
+        "Web server": [
+            {
+                "name": "IBMCaseManager",
+                "term": 4,
+                "detail": "環境の構築、運用が可能"
+            }, {
+                "name": "IBMWebsphere",
+                "term": 0.5,
+                "detail": "構築と簡単なテーブルの作成が可能"
+            }, {
+                "name": "IIS",
+                "term": 0.5,
+                "detail": "構築と簡単なテーブルの作成が可能"
+            }, {
+                "name": "Apache",
+                "term": 0.5,
+                "detail": "構築と簡単なテーブルの作成が可能"
+            },{
+                "name": "Coldfusion",
+                "term": 0.5,
+                "detail": "構築と簡単なテーブルの作成が可能"
+            },{
+                "name": "Coldfusion",
+                "term": 0.5,
+                "detail": "構築と簡単なテーブルの作成が可能"
+            }
+        ]
+    }
+}
