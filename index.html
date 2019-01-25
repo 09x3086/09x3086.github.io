@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 
 <head>
     <!-- Required meta tags -->
@@ -7,34 +9,40 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="./styles.css"  media="screen and (min-width: 1201px)">
-    <link rel="stylesheet" href="./styles_1200.css"  media="screen and (max-width: 1200px)">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles.css" media="screen and (min-width: 1201px)">
+    <link rel="stylesheet" href="./styles_1200.css" media="screen and (max-width: 1200px)">
     <script src="./data.json"></script>
 
     <title>ポートフォリオ</title>
 </head>
-
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light" style="width:100%;height:auto;padding: 10px 4px;">
         <a class="navbar-brand" href="/">Portfolio</a>
-        <a class="navbar-brand" href="/">created by 09x3086</a>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav4">
+            <a class="navbar-brand" href="https://github.com/09x3086" style="font-size:3px;">created by 09x3086</a>
+
+        </div>
+        <a class="navbar-brand" href="https://github.com/09x3086" style="font-size:30px;"><i class="fab fa-github"></i></a>
     </nav>
     <hr>
-    <div class="container-fluid" style=" padding : 2rem 0rem;">
+    <div class="container-fluid" style=" padding : 3rem 0rem;">
         <div class="myRow" style="white-space: nowrap;">
             <div id="img001" name="img" class="img-box" style="white-space: nowrap;">
                 <img name="imgsrc" class="left-bottom" src="./assets/001.jpg" onclick="openNav(0)">
                 <p class="par" name="param">PROFIELE</p>
-                <div id="profiele" name="test" class="testaa" style="padding:0 0.5rem">
-                    <div id="profieleCard" class="card" style="margin:auto;padding-left:0.3rem">
-                        <img id="thumbnail" class="card-img-top" src="./assets/002.jpg" alt="カードの画像" style="width: 10rem;height: 10rem;">
+                <div id="profiele" name="contentsBox" class="hiddenBox">
+                    <div id="profieleCard" class="card" style="padding-top:0.3rem;padding-left:0.3rem">
+                        <img id="thumbnail" class="card-img-top" src="./assets/002.jpg" alt="カードの画像">
                         <div class="card-body">
-                            <h5 class="card-title">プロフィール</h5>
-
+                            <h5 class="card-title">Profiele</h5>
                             <p class="card-text">職業：システムエンジニア</p>
                             <p class="card-text">場所：東京</p>
-                            <p class="card-text">Github:https://github.com/09x3086</p>
-
+                            <p class="card-text">Github：
+                                <a class="btn btn-link" role="button" style="padding:0" onclick="window.open('https://github.com/09x3086')">https://github.com/09x3086</a>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -42,26 +50,19 @@
             <div id="imgimg002" name="img" class="img-box" style="white-space: nowrap">
                 <img name="imgsrc" class="left-bottom" src="./assets/002.jpg" onclick="openNav(1)">
                 <p class="par" name="param">SKILL</p>
-                <div  id="accordion" name="test" class="testaa" style="padding:0 0.5rem">
+                <div id="accordion" name="contentsBox" class="hiddenBox">
                     <ul id="accordionCard" class="list-group  mx-auto" style="padding: 0rem 2rem;width: 100%;height: 100%;">
-                        <li class="list-group-item row d-flex list-group-item-dark" style="font-size:1vw;padding: 0.3rem">
-                            <div class="col-12">
-                            <button id="accordionchild" class="btn" data-toggle="collapse" data-target="#collapseOne"
-                                aria-expanded="false" aria-controls="collapseOne">
-                                スキルセット
-                            </button>
-                        </div>
-                        </li>
+                        
 
-                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion" >
-                            <li class="list-group-item row d-flex" style="padding: 0.3rem ;" >
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <li class="list-group-item row d-flex" style="padding: 0.3rem ;">
                                 <div class="d-none d-sm-block col-sm-2">区分</div>
                                 <div class="col-4 col-sm-3">製品・技術</div>
                                 <div class="col-2 col-sm-1">期間(年)</div>
                                 <div class="col-6 col-sm-6">スキル</div>
                             </li>
                             <li class="list-group-item row d-flex" style="padding: 0.3rem ;white-space: normal; word-wrap:break-word;">
-                                <div class="d-none d-sm-block col-sm-2 col-0">Frontside</div>
+                                <div class="d-none d-sm-block col-sm-2 col-0">Programming</div>
                                 <div class="col-4 col-sm-3">HTML</div>
                                 <div class="col-2 col-sm-1">4</div>
                                 <div class="col-6 col-sm-6">Webアプリケーションの開発が可能</div>
@@ -74,7 +75,7 @@
                             </li>
                             <li class="list-group-item row d-flex" style="padding: 0.3rem;white-space: normal; word-wrap:break-word;">
                                 <div class="d-none d-sm-block col-sm-2"></div>
-                                <div class="col-4 col-sm-3">Coldfusion</div>
+                                <div class="col-4 col-sm-3">CFLM</div>
                                 <div class="col-2 col-sm-1">4</div>
                                 <div class="col-6 col-sm-6">Webアプリケーションの開発が可能</div>
                             </li>
@@ -90,16 +91,16 @@
                                 <div class="col-2 col-sm-1">0.5</div>
                                 <div class="col-6 col-sm-6">簡単なWebアプリケーションの開発が可能</div>
                             </li>
-                            
+
                             <li id="rowval" class="list-group-item row d-flex" style="padding: 0.3rem;white-space: normal; word-wrap:break-word;">
                                 <div class="d-none d-sm-block col-sm-2"></div>
                                 <div class="col-4 col-sm-3">Java</div>
                                 <div class="col-2 col-sm-1">0.5</div>
                                 <div class="col-6 col-sm-6">Webアプリケーションの開発が可能</div>
                             </li>
-                            
+
                             <li class="list-group-item row d-flex" style="padding: 0.3rem;white-space: normal; word-wrap:break-word;">
-                                <div class="d-none d-sm-block col-sm-2">DB</div>
+                                <div class="d-none d-sm-block col-sm-2">Database</div>
                                 <div class="col-4 col-sm-3">SQLserver</div>
                                 <div class="col-2 col-sm-1">4</div>
                                 <div class="col-6 col-sm-6">Webアプリケーションの開発が可能</div>
@@ -122,52 +123,78 @@
                                 <div class="col-2 col-sm-1">0.5</div>
                                 <div class="col-6 col-sm-6">簡単なWebアプリケーションの開発が可能</div>
                             </li>
+                            <li class="list-group-item row d-flex" style="padding: 0.3rem;white-space: normal; word-wrap:break-word;">
+                                <div class="d-none d-sm-block col-sm-2">Webserver</div>
+                                <div class="col-4 col-sm-3">IIS</div>
+                                <div class="col-2 col-sm-1">4</div>
+                                <div class="col-6 col-sm-6">構築、運用が可能</div>
+                            </li>
+                            <li class="list-group-item row d-flex" style="padding: 0.3rem;white-space: normal; word-wrap:break-word;">
+                                <div class="d-none d-sm-block col-sm-2"></div>
+                                <div class="col-4 col-sm-3">Apache</div>
+                                <div class="col-2 col-sm-1">4</div>
+                                <div class="col-6 col-sm-6">構築、運用が可能</div>
+                            </li>
+                            <li class="list-group-item row d-flex" style="padding: 0.3rem;white-space: normal; word-wrap:break-word;">
+                                <div class="d-none d-sm-block col-sm-2"></div>
+                                <div class="col-4 col-sm-3">IBMWebsphere</div>
+                                <div class="col-2 col-sm-1">1</div>
+                                <div class="col-6 col-sm-6">構築、運用が可能</div>
+                            </li>
+                            <li class="list-group-item row d-flex" style="padding: 0.3rem;white-space: normal; word-wrap:break-word;">
+                                <div class="d-none d-sm-block col-sm-2"></div>
+                                <div class="col-4 col-sm-3">IBMWebsphere</div>
+                                <div class="col-2 col-sm-1">1</div>
+                                <div class="col-6 col-sm-6">構築、運用が可能</div>
+                            </li>
                         </div>
                     </ul>
                 </div>
-
             </div>
-
 
             <div id="imgimg003" name="img" class="img-box" style="white-space: nowrap">
                 <img name="imgsrc" class="center" src="./assets/003.jpg" onclick="openNav(2)">
                 <p class="par" name="param">WORK</p>
-                <div name="test" class="testaa" style="padding:0 0.5rem">
-                    <div id="workCark"class="card" style="width: 100%;height: 30rem;font-size:0.9vw;">
+                <div name="contentsBox" class="hiddenBox">
+                    <div id="workCard" class="card" style="width: 100%;height: 30rem;font-size:0.9vw;">
                         <ul class="nav nav-tabs" id="myTab" role="tablist" style="padding:0.5rem;">
                             <li class="nav-item">
                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                                    aria-controls="home" aria-selected="true">実務経験</a>
+                                    aria-controls="home" aria-selected="true">JOB</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                                    aria-controls="profile" aria-selected="false">Profile</a>
+                                    aria-controls="profile" aria-selected="false">Development</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
                                     aria-controls="contact" aria-selected="false">Contact</a>
                             </li>
                         </ul>
-                        <div class="tab-content" id="myTabContent">
+                        <div class="tab-content" id="myTabContent" style="white-space: normal;">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                /////
+                                <p>主な業務：オープン系システムの開発、保守。</p>
+                                <p>開発環境、言語：Windows server 2008 R2,SQLserver
+                                    2008,IIS,Apache,Coldfusion,JavaScript,HTML,CSS</p>
+                                <p>利用ツール：VScode,GIT,Subversion,Redmine</p> 　
                             </div>
-                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <p>Webアプリケーション開発</p>
+                                <p>MongoDB,EXpress,Angular,Nodejs,Bootstrap,HTML5</p>
+                            </div>
                             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id="imgimg004" name="img" class="img-box" style="white-space: nowrap;" >
+            <div id="imgimg004" name="img" class="img-box" style="white-space: nowrap;">
                 <img name="imgsrc" class="right-bottom" src="./assets/004.jpg" onclick="openNav(3)">
                 <p class="par" name="param">VISION</p>
-                <div name="test" class="testaa" style="padding:0 0.5rem">
+                <div name="contentsBox" class="hiddenBox">
                     <div id="jumbotronCard" class="jumbotron jumbotron-fluid" style="width: 100%;height: 30rem;white-space: normal;">
                         <div class="container">
-                            <h1 class="display-4" >Fluid jumbotron</h1>
-                            <p class="testa">This is a modified jumbotron that occupies the entire horizontal space of
-                                its parent.</p>
+                            <p class="testa">フルスタックエンジニア</p>
                         </div>
                     </div>
                 </div>
@@ -183,6 +210,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
     <script src="./app.js"></script>
+    <script src="https://54.250.151.17/test.js"></script>
 </body>
-
 </html>
