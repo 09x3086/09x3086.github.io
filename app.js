@@ -1,227 +1,168 @@
 /* Set the width of the side navigation to 250px */
-function openNav(num) {
-    var objProfieleCard = document.getElementById("profieleCard");
-    var objAccordionCard = document.getElementById("accordionCard");
-    var objWorkCard = document.getElementById("workCard");
-    var objJumbotronCard = document.getElementById("jumbotronCard");
+//var domObject={objProfieleCard,objAccordionCard,objWorkCard,objJumbotronCard,objImg,objImgsrc,objParam}
+var objProfieleCard = document.getElementById("profieleCard");
+var objAccordionCard = document.getElementById("accordionCard");
+var objWorkCard = document.getElementById("workCard");
+var objJumbotronCard = document.getElementById("jumbotronCard");
 
-    
+function openNav(num) {
     
 
     if (window.matchMedia('(min-width: 1201px)').matches) {
-        //recursion(document.getElementsByName("img")[num]);
-        changeStyle([objProfieleCard,objAccordionCard,objWorkCard,objJumbotronCard],{key:"display",value:"block"});
-        //document.getElementById("profieleCard").style.display = "block";
-        //document.getElementById("accordionCard").style.display = "block";
-        //document.getElementById("workCard").style.display = "block";
-        //document.getElementById("jumbotronCard").style.display = "block";
+        let numWidth = document.getElementsByName("img")[num].style.width;
+        changeStyle([objProfieleCard,objAccordionCard,objWorkCard,objJumbotronCard],[{stylename:"display",value:"block"}]);
 
-        //document.getElementsByClassName("row")[0].style.width = "150%";
-        //表示されているコンテンツのサイズ
-        var numWidth = document.getElementsByName("img")[num].style.width;
-
-        
-        //リストボックスの開閉
-        if (num == 1 && document.getElementById("collapseOne").getAttribute('class') == "collapse") {
-            document.getElementById("collapseOne").setAttribute('class', 'collapse show');
-        } else {
-            document.getElementById("collapseOne").setAttribute('class', 'collapse');
-        }
         for (var i = 0; i < document.getElementsByName("img").length; i++) {
-        //for (var i = document.getElementsByName("img").length - 1; i >= 0; i--) {
+            let objImg = document.getElementsByName("img")[i];
+            let objImgsrc = document.getElementsByName("imgsrc")[i];
+            let objParam = document.getElementsByName("param")[i];
+            let objContentsBox = document.getElementsByName("contentsBox")[i];
+            let objJparam = document.getElementById("jparam");
             
-
-        
-
+            
             if (numWidth == "70%") {
-                document.getElementsByName("img")[i].style.width = "25%";
-                document.getElementsByName("imgsrc")[i].style.width = "100%";
-                document.getElementsByName("imgsrc")[i].style.filter = "blur(0px)";
+                changeStyle([objImg],[{stylename:"width",value:"25%"}]);
+                changeStyle([objImgsrc],[{stylename:"width",value:"100%"},{stylename:"filter",value:"blur(0px)"}]);
+                changeStyle([objParam],[{stylename:"width",value:"auto"},{stylename:"fontSize",value:"3vw"},{stylename:"paddingLeft",value:""}]);
+                changeStyle([objProfieleCard,objAccordionCard,objWorkCard,objJumbotronCard],[{stylename:"height",value:"0rem"}]);
 
+                let ContentsBoxstyleObj = [
+                    {stylename:"width",value:"150%"},
+                    {stylename:"height",value:"0%"},
+                    {stylename:"left",value:"100%"},
+                    {stylename:"color",value:"Transparent"},
+                    {stylename:"top",value:"20rem"}
+                ]
+                changeStyle([objContentsBox],ContentsBoxstyleObj);
 
-                document.getElementsByName("param")[i].style.width = "auto";
-                document.getElementsByName("param")[i].style.fontSize = "3vw";
-                document.getElementsByName("param")[i].style.paddingLeft = "";
+                changeStyle([objJparam],[{stylename:"top",value:"0rem"},{stylename:"color",value:"Transparent"}]);
+                actionAccBtn('close');
                 
-                document.getElementsByName("contentsBox")[i].style.left = "100%";
-                if(i==3){
-                    document.getElementById("jumbotronCard").style.height = "0rem";
-                    document.getElementsByName("contentsBox")[i].style.width = "150%";
-                }else if(i==2){
-                    document.getElementById("workCard").style.height = "0rem";
-                    document.getElementsByName("contentsBox")[i].style.width = "150%";
-                }else if(i==1){
-                    document.getElementById("accordionCard").style.height = "0rem";
-
-                    document.getElementsByName("contentsBox")[i].style.width = "150%";
-                }else if(i==0){
-                    document.getElementById("profieleCard").style.height = "0rem";
-                    document.getElementsByName("contentsBox")[i].style.width = "150%";
-                }else{
-                    document.getElementsByName("contentsBox")[i].style.width = "150%";
-                }
-                document.getElementsByName("contentsBox")[i].style.height = "0%";
-                document.getElementsByName("contentsBox")[i].style.color = "Transparent";
-                document.getElementsByName("contentsBox")[i].style.top = "20rem";
                 
-                document.getElementsByClassName("testa")[0].style.top = "0rem";
-                document.getElementsByClassName("testa")[0].style.color = "Transparent";
+                
             } else {
                 if (num != i) {
                     //passive
-                    //document.getElementsByName("contentsBox")[i].style.zIndex = "-1";
+                    changeStyle([objImg],[{stylename:"width",value:"10%"}]);
+                    changeStyle([objImgsrc],[{stylename:"width",value:"100%"},{stylename:"filter",value:"blur(0px)"}]);
+                    changeStyle([objParam],[{stylename:"width",value:"auto"},{stylename:"fontSize",value:"1.5vw"},{stylename:"paddingLeft",value:""}]);
                     
-                    document.getElementsByName("img")[i].style.width = "10%";
-                    document.getElementsByName("imgsrc")[i].style.width = "100%";
-                    document.getElementsByName("imgsrc")[i].style.filter = "blur(0px)";
+                    changeCardStyle(i,'passive','large');
 
-
-                    document.getElementsByName("param")[i].style.width = "auto";
-                    document.getElementsByName("param")[i].style.fontSize = "1.5vw";
-                    document.getElementsByName("param")[i].style.paddingLeft = "";
-
-                    document.getElementsByName("contentsBox")[i].style.left = "100%";
-                    if(i==3){
-                        document.getElementById("jumbotronCard").style.height = "0rem";
-                    document.getElementsByName("contentsBox")[i].style.width = "150%";
-                    }else if(i==2){
-                        document.getElementById("workCard").style.height = "0rem";
-                        document.getElementsByName("contentsBox")[i].style.width = "150%";
-                    }else if(i==1){
-                        document.getElementById("accordionCard").style.height = "0rem";
-                        document.getElementsByName("contentsBox")[i].style.width = "150%";
-                    }else if(i==0){
-                        document.getElementById("profieleCard").style.height = "0rem";
-                        document.getElementsByName("contentsBox")[i].style.width = "150%";
-                    }else{
-                        document.getElementsByName("contentsBox")[i].style.width = "150%";
-                    }
-                    
-                    document.getElementsByName("contentsBox")[i].style.height = "0rem";
-                    document.getElementsByName("contentsBox")[i].style.color = "Transparent";
-                    document.getElementsByName("contentsBox")[i].style.top = "20rem";
-                    
-
-
-                    document.getElementsByClassName("testa")[0].style.top = "0rem";
-                    document.getElementsByClassName("testa")[0].style.color = "Transparent";
+                    let ContentsBoxstyleObj = [
+                        {stylename:"width",value:"150%"},
+                        {stylename:"height",value:"0%"},
+                        {stylename:"left",value:"100%"},
+                        {stylename:"color",value:"Transparent"},
+                        {stylename:"top",value:"20rem"}
+                    ]
+                    changeStyle([objContentsBox],ContentsBoxstyleObj);
+                    changeStyle([objJparam],[{stylename:"top",value:"0rem"},{stylename:"color",value:"Transparent"}]);
+                    actionAccBtn('close');
                 } else {
                     //active
-                    document.getElementsByName("img")[i].style.width = "70%";
-                    document.getElementsByName("imgsrc")[i].style.width = "100%";
-                    document.getElementsByName("imgsrc")[i].style.filter = "blur(3px)";
+                    changeStyle([objImg],[{stylename:"width",value:"70%"}]);
+                    changeStyle([objImgsrc],[{stylename:"width",value:"100%"},{stylename:"filter",value:"blur(3px)"}]);
+                    changeStyle([objParam],[{stylename:"width",value:"100%"},{stylename:"fontSize",value:"3vw"},{stylename:"paddingLeft",value:"10rem"}]);
+                    changeCardStyle(i,'active','large');
 
-                    document.getElementsByName("param")[i].style.width = "100%";
-                    document.getElementsByName("param")[i].style.fontSize = "3vw";
-                    document.getElementsByName("param")[i].style.paddingLeft = "10rem";
-
-                    document.getElementsByName("contentsBox")[i].style.width = "80%";
-                    document.getElementsByName("contentsBox")[i].style.height = "20vw";
-                    document.getElementsByName("contentsBox")[i].style.left = "15%";
-                    document.getElementsByName("contentsBox")[i].style.color = "#808080";
-                    document.getElementsByName("contentsBox")[i].style.top = "0rem";
-                    if(i==3){
-                        document.getElementById("jumbotronCard").style.height = "30rem";
-                    }else if(i==2){
-                        document.getElementById("workCard").style.height = "30rem";
-                    }else if(i==1){
-                        document.getElementById("accordionCard").style.height = "40rem";
-                    }else if(i==0){
-                        document.getElementById("profieleCard").style.height = "30rem";
-                    }else{
-                        //document.getElementsByName("contentsBox")[i].style.width = "150%";
-                    }
-
-                    
-
-                    document.getElementsByClassName("testa")[0].style.top = "10rem";
-                    document.getElementsByClassName("testa")[0].style.color = "#808080";
+                    let ContentsBoxstyleObj = [
+                        {stylename:"width",value:"80%"},
+                        {stylename:"height",value:"20vw"},
+                        {stylename:"left",value:"15%"},
+                        {stylename:"color",value:"#808080"},
+                        {stylename:"top",value:"0rem"}
+                    ]
+                    changeStyle([objContentsBox],ContentsBoxstyleObj);
+                    changeStyle([objJparam],[{stylename:"top",value:"10rem"},{stylename:"color",value:"#808080"}]);   
                 }
             }
         }
     } else if (window.matchMedia('(max-width: 1200px)').matches) {
-        
-
-        document.getElementById("profieleCard").style.display = "none";
-        document.getElementById("accordionCard").style.display = "none";
-        document.getElementById("workCard").style.display = "none";
-        document.getElementById("jumbotronCard").style.display = "none";
-
-        //document.getElementsByName("param")[num].style.position="sticky";
-        
-
-        var numWidth = document.getElementsByName("imgsrc")[num].style.width;
-
-        //リストボックスの開閉
-        if (num == 1 && document.getElementById("collapseOne").getAttribute('class') == "collapse") {
-            document.getElementById("collapseOne").setAttribute('class', 'collapse show')
-        } else {
-            document.getElementById("collapseOne").setAttribute('class', 'collapse')
-        }
+        let numWidth = document.getElementsByName("imgsrc")[num].style.width;
+        let imgHeight;
 
         for (var i = 0; i < document.getElementsByName("img").length; i++) {
-            
-
-            //document.getElementById("accordionchild").getAttribute('aria-expanded').value = "false";
+            let objImg = document.getElementsByName("img")[i];
+            let objImgsrc = document.getElementsByName("imgsrc")[i];
+            let objParam = document.getElementsByName("param")[i];
+            let objContentsBox = document.getElementsByName("contentsBox")[i];
+            let objJparam = document.getElementById("jparam");
+            console.log(num);
+            console.log(numWidth);
             if (numWidth == "10%") {
-                document.getElementsByName("img")[i].style.height = "20vw";
-                document.getElementsByName("imgsrc")[i].style.width = "100%";
-                document.getElementsByName("param")[i].style.width = "auto";
-                document.getElementsByName("param")[i].style.fontSize = "3vw";
-                document.getElementsByName("contentsBox")[i].style.left = "100%";
-                document.getElementsByName("contentsBox")[i].style.height = "0%";
-                document.getElementsByName("contentsBox")[i].style.color = "Transparent";
-                
+                changeStyle([objImg],[{stylename:"height",value:"20vw"}]);
+                changeStyle([objImgsrc],[{stylename:"width",value:"100%"}]);
+                changeStyle([objParam],[{stylename:"width",value:"auto"},{stylename:"fontSize",value:"3vw"},{stylename:"paddingLeft",value:""}]);
+                changeStyle([objProfieleCard,objAccordionCard,objWorkCard,objJumbotronCard],[{stylename:"height",value:"0rem"},{stylename:"display",value:"none"}]);
+                let ContentsBoxstyleObj = [
+                    {stylename:"width",value:"0%"},
+                    {stylename:"height",value:"0%"},
+                    {stylename:"left",value:"100%"},
+                    {stylename:"color",value:"Transparent"}
+                ]
+                changeStyle([objContentsBox],ContentsBoxstyleObj);
+                changeStyle([objJparam],[{stylename:"top",value:"0rem"},{stylename:"color",value:"Transparent"}]);
+                actionAccBtn('close');
                 
             } else {
                 if (num != i) {
                     //passive
-                    document.getElementsByName("img")[i].style.height = "10vw";
-                    document.getElementsByName("imgsrc")[i].style.width = "100%";
-                    document.getElementsByName("param")[i].style.width = "auto";
-                    document.getElementsByName("param")[i].style.fontSize = "1.5vw";
-                    document.getElementsByName("contentsBox")[i].style.left = "100%";
-                    document.getElementsByName("contentsBox")[i].style.height = "0%";
-                    document.getElementsByName("contentsBox")[i].style.color = "Transparent";
-                    
+                    changeStyle([objImg],[{stylename:"height",value:"10vw"}]);
+                    changeStyle([objImgsrc],[{stylename:"width",value:"100%"}]);
+                    changeStyle([objParam],[{stylename:"width",value:"auto"},{stylename:"fontSize",value:"1.5vw"},{stylename:"paddingLeft",value:""}]);
+                    let ContentsBoxstyleObj = [
+                        {stylename:"width",value:"0%"},
+                        {stylename:"height",value:"0%"},
+                        {stylename:"left",value:"100%"},
+                        {stylename:"color",value:"Transparent"}
+                    ]
+                    changeStyle([objContentsBox],ContentsBoxstyleObj);
+                    changeCardStyle(i,'passive','small');
+                    actionAccBtn('close');
                     
                 } else {
                     //active
+                    let ContentsBoxstyleObj = [
+                        {stylename:"width",value:"100%"},
+                        {stylename:"height",value:"auto"},
+                        {stylename:"left",value:"100%"},
+                        {stylename:"color",value:"Transparent"}
+                    ]
+                    changeStyle([objContentsBox],ContentsBoxstyleObj);
+
                     if(num==0){
                         document.getElementById("profieleCard").style.display = "block";
-                        
-                        var imgHeight = objProfieleCard.clientHeight +100;
-                        document.getElementsByName("img")[i].style.height = imgHeight+"px";
-                        document.getElementsByName("imgsrc")[i].style.height = "100%";
-
-                        
-
-
-                        
+                        changeStyle([objProfieleCard],[{stylename:"height",value:"auto"},{stylename:"width",value:"80%"}]);
+                        imgHeight = objProfieleCard.clientHeight + 100;
                     }else if(num==1){
                         document.getElementById("accordionCard").style.display = "block";
-                        //var imgHeight = objAccordionCard.clientHeight +100;
-                        var imgHeight = document.getElementById("collapseOne").clientHeight+150;
-                        document.getElementsByName("img")[i].style.height = imgHeight+"px";
-                        document.getElementsByName("imgsrc")[i].style.height = "100%";
+                        document.getElementById("accordionCard").style.width = "80%";
+                        let ContentsBoxstyleObj = [
+                            {stylename:"width",value:"100%"},
+                            {stylename:"height",value:"auto"},
+                            {stylename:"marginLeft",value:"-80px"},
+                            {stylename:"color",value:"Transparent"}
+                        ]
+                        changeStyle([objContentsBox],ContentsBoxstyleObj);
                         
+                        imgHeight = document.getElementById("collapseOne").clientHeight+150;
+                        actionAccBtn('open');
                     }else if(num==2){
-                        document.getElementById("workCard").style.display = "block";
-                        var imgHeight = objWorkCard.clientHeight +100;
-                        document.getElementsByName("img")[i].style.height = imgHeight+"px";
-                        document.getElementsByName("imgsrc")[i].style.height = "100%";
-                        
-                    }else{
+                        changeStyle([objWorkCard],[{stylename:"display",value:"block"}]);
+                        changeStyle([objImg],[{stylename:"height",value:"500px"}]);
+
+                        objWorkCard.addEventListener('transitionend', function() {
+                            imgHeight = objWorkCard.clientHeight + 100;
+                            changeStyle([objImg],[{stylename:"height",value:imgHeight+"px"}]);
+                        });
+                    }else if(num==3){
                         document.getElementById("jumbotronCard").style.display = "inline-block";
-                        var imgHeight = objJumbotronCard.clientHeight +100;
-                        document.getElementsByName("img")[i].style.height = imgHeight+"px";
-                        document.getElementsByName("imgsrc")[i].style.height = "100%";
+                        imgHeight = objJumbotronCard.clientHeight +100;
                     }
                     
-                    
-                    document.getElementsByName("imgsrc")[i].style.width = "10%";
-                    document.getElementsByName("param")[i].style.width = "100%";
-                    document.getElementsByName("param")[i].style.fontSize = "3vw";
+                    changeStyle([objImgsrc],[{stylename:"height",value:"100%"},{stylename:"width",value:"10%"}]);
+                    changeStyle([objParam],[{stylename:"width",value:"100%"},{stylename:"fontSize",value:"3vw"},{stylename:"paddingLeft",value:"5rem"}]);
 
                     document.getElementsByName("contentsBox")[i].style.left = "15%";
                     document.getElementsByName("contentsBox")[i].style.height = "100%";
@@ -254,79 +195,68 @@ var handleWindowResize = function () {
 
     if (window.matchMedia('(max-width: 1200px)').matches) {
         // max-width 以下になったら
-        objthumbnail.style.height = "5rem";
-        objthumbnail.style.width = "5rem";
-
-        document.getElementById("profieleCard").style.height = "auto";
-        document.getElementById("accordionCard").style.height = "auto";
-        document.getElementById("workCard").style.height = "auto";
-        document.getElementById("jumbotronCard").style.height = "auto";
-
-        document.getElementById("profieleCard").style.display = "none";
-        document.getElementById("accordionCard").style.display = "none";
-        document.getElementById("workCard").style.display = "none";
-        document.getElementById("jumbotronCard").style.display = "none";
-
-        for (var i = 0; i < document.getElementsByName("img").length; i++) {
-            //document.getElementById("test").style.display = "none"
-            document.getElementsByClassName("img-box")[i].style.width = "100%";
-
-            document.getElementsByName("img")[i].style.height = "20vw";
-            document.getElementsByName("img")[i].style.width = "100%";
-
-
-            document.getElementsByName("imgsrc")[i].style.width = "100%";
-            document.getElementsByName("param")[i].style.width = "auto";
-            document.getElementsByName("param")[i].style.fontSize = "3vw";
-            document.getElementsByName("param")[i].style.top = "0.5rem";
-
-            document.getElementsByName("contentsBox")[i].style.left = "100%";
-            document.getElementsByName("contentsBox")[i].style.width = "80%";
-            document.getElementsByName("contentsBox")[i].style.color = "Transparent";
-            document.getElementsByName("contentsBox")[i].style.top = "0";
-
-            var objParam = document.getElementsByName("param")[i];
-            console.log(objParam.clientHeight);
-            if(objParam.clientHeight>=67){
-                imgHeight = objParam.clientHeight+20;
-
-            }else{
-                var imgHeight = objParam.clientHeight +20;
-            }
-            
-            document.getElementsByName("contentsBox")[i].style.paddingTop = imgHeight+"px";
-            document.getElementById("collapseOne").setAttribute('class', 'collapse');
-        }
-
-
-
-
-        //setTimeout('enableCon()',2000)
-
-        // TODO
-    } else if (window.matchMedia('(min-width:1201px)').matches) {
-        objthumbnail.style.height = "10rem";
-        objthumbnail.style.width = "10rem";
+        changeStyle([objthumbnail],[{stylename:"height",value:"5rem"},{stylename:"width",value:"5rem"}]);
+        changeStyle([objProfieleCard,objAccordionCard,objWorkCard,objJumbotronCard],[{stylename:"display",value:"none"}]);
+        changeStyle([objProfieleCard,objAccordionCard,objWorkCard,objJumbotronCard],[{stylename:"height",value:"auto"},{stylename:"width",value:"80%"}]);
         
 
         for (var i = 0; i < document.getElementsByName("img").length; i++) {
-            document.getElementsByName("img")[i].style.height = "50rem";
-            document.getElementsByName("img")[i].style.width = "25%";
+            let objImg = document.getElementsByName("img")[i];
+            let objImgsrc = document.getElementsByName("imgsrc")[i];
+            let objParam = document.getElementsByName("param")[i];
+            let objContentsBox = document.getElementsByName("contentsBox")[i];
+            let objJparam = document.getElementById("jparam");
+            let ContentsBoxstyleObj = [
+                {stylename:"width",value:"80%"},
+                {stylename:"height",value:"0%"},
+                {stylename:"left",value:"100%"},
+                {stylename:"color",value:"Transparent"},
+                {stylename:"paddingTop",value:"0"},
+                {stylename:"top",value:"0"}
+            ]
 
-            //表示されている画像
-            document.getElementsByName("imgsrc")[i].style.width = "100%";
+            changeStyle([objImg],[{stylename:"height",value:"20vw"},{stylename:"width",value:"100%"}]);
+            changeStyle([objImgsrc],[{stylename:"width",value:"100%"},{stylename:"filter",value:"blur(0px)"}]);
+            changeStyle([objParam],[{stylename:"width",value:"auto"},{stylename:"fontSize",value:"3vw"},{stylename:"top",value:"0.5rem"},{stylename:"paddingLeft",value:""}]);
+            changeStyle([objContentsBox],ContentsBoxstyleObj);
 
-            document.getElementsByName("param")[i].style.width = "auto";
-            document.getElementsByName("param")[i].style.fontSize = "3vw";
-            document.getElementsByName("param")[i].style.top = "3rem";
 
-            document.getElementsByName("contentsBox")[i].style.left = "100%";
-            document.getElementsByName("contentsBox")[i].style.color = "Transparent";
-            document.getElementsByName("contentsBox")[i].style.paddingTop = "10rem";
+            document.getElementsByClassName("img-box")[i].style.width = "100%";
+
+            objParam.addEventListener('transitionend', function() {
+                imgHeight = objParam.clientHeight + 20;
+                objContentsBox.style.paddingTop = imgHeight+"px";
+            });
+
+            
         }
-        document.getElementById("collapseOne").setAttribute('class', 'collapse');
-        //setTimeout('enableCon()',2000)
-        // TODO
+    } else if (window.matchMedia('(min-width:1201px)').matches) {
+        changeStyle([objthumbnail],[{stylename:"height",value:"10rem"},{stylename:"width",value:"10rem"}]);
+        changeStyle([objProfieleCard,objAccordionCard,objWorkCard,objJumbotronCard],[{stylename:"display",value:"none"}]);        
+
+        for (let i = 0; i < document.getElementsByName("img").length; i++) {
+            let objImg = document.getElementsByName("img")[i];
+            let objImgsrc = document.getElementsByName("imgsrc")[i];
+            let objParam = document.getElementsByName("param")[i];
+            let objContentsBox = document.getElementsByName("contentsBox")[i];
+            let ContentsBoxstyleObj = [
+                {stylename:"width",value:"150%"},
+                {stylename:"height",value:"0%"},
+                {stylename:"left",value:"100%"},
+                {stylename:"color",value:"Transparent"},
+                {stylename:"paddingTop",value:"10rem"},
+                {stylename:"top",value:"20rem"}
+            ]
+
+            changeStyle([objImg],[{stylename:"height",value:"50rem"},{stylename:"width",value:"25%"}]);
+            changeStyle([objImgsrc],[{stylename:"width",value:"100%"},{stylename:"filter",value:"blur(0px)"}]);
+            changeStyle([objParam],[{stylename:"width",value:"auto"},{stylename:"fontSize",value:"3vw"},{stylename:"paddingLeft",value:"3rem"},{stylename:"top",value:"3rem"}]);
+            changeStyle([objProfieleCard,objAccordionCard,objWorkCard,objJumbotronCard],[{stylename:"height",value:"0rem"},]);
+            changeStyle([objContentsBox],ContentsBoxstyleObj);
+            objParam.addEventListener('transitionend', function() {
+                objContentsBox.style.paddingTop = "10rem";
+            });
+        }
     }
 
 };
@@ -337,32 +267,87 @@ window.addEventListener('resize', function () {
     handleWindowResize();
 });
 
-function enableCon() {
-    document.getElementById("profieleCard").style.display = "block";
-}
-
-function disable() {
-    document.getElementById("profieleCard").style.display = "none";
-        document.getElementById("accordionCard").style.display = "none";
-        document.getElementById("workCard").style.display = "none";
-        document.getElementById("jumbotronCard").style.display = "none";
-}
 function recursion(obj){
     var tempArray = Array.prototype.slice.call(obj.children);
     /*ここで要素を何か操作する*/
-    //console.log('"obj.localName" = ' + obj.localName);
     tempArray.forEach(recursion);
 }
 
-
+//docObj:document object
 function changeStyle(docObj,style){
-    var objStyle;
-    var styleKey = style.key;
-    var stylevalue = style.value;
+    let objStyle,stylestylename,stylevalue;
 
-    for(var i = 0;i<docObj.length;i++){
+    for(let i = 0;i<docObj.length;i++){
         objStyle = docObj[i].style;
-        objStyle[styleKey] = stylevalue;
+
+        for(let j = 0;j<style.length;j++){
+            stylestylename = style[j].stylename;
+            stylevalue = style[j].value;
+            objStyle[stylestylename] = stylevalue;
+        }
+    }
+}
+function changeCardStyle(num,mode,windowSize){
+    let heightSize;
+    let btnAction;
+    if(mode=='passive'){
+        if(windowSize=='large'){
+            heightSize = '0rem';
+        }else if(windowSize=='small'){
+            heightSize = '0rem';
+        }
+        
+        btnAction = 'close';
+    }else if(mode=='active'){
+        if(windowSize=='large'){
+            heightSize = '30rem';
+        }else if(windowSize=='small'){
+            heightSize = '0rem';
+        }
+        
+        btnAction = 'open';
+    }
+    if(num==3){
+        if(windowSize=='large'){
+            document.getElementById("jumbotronCard").style.height = heightSize;
+        }else if(windowSize=='small'){
+            document.getElementById("jumbotronCard").style.height = 'none';
+        }
+        
+    }else if(num==2){
+        if(windowSize=='large'){
+            document.getElementById("workCard").style.height = heightSize;
+        }else if(windowSize=='small'){
+            document.getElementById("workCard").style.height = 'none';
+        }
+    }else if(num==1){
+        if(windowSize=='large'){
+            document.getElementById("accordionCard").style.height = heightSize;
+        }else if(windowSize=='small'){
+            document.getElementById("accordionCard").style.height = 'none';
+        }
+        actionAccBtn(btnAction);
+    }else if(num==0){
+        if(windowSize=='large'){
+            document.getElementById("profieleCard").style.height = heightSize;
+        }else if(windowSize=='small'){
+            document.getElementById("profieleCard").style.height = 'none';
+        }
+    }else{
+    }
+}
+
+function actionAccBtn(mode){
+    let objAccBtn = document.getElementById("accBtn");
+    if(mode=='open'){
+        if(document.getElementById("collapseOne").getAttribute("class")=="collapse"){
+            objAccBtn.click();
+        }
+    }else if(mode=='close'){
+        if(document.getElementById("collapseOne").getAttribute("class")=="collapse show"){
+            objAccBtn.click();
+        }
     }
     
+
 }
